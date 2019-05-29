@@ -1,0 +1,8 @@
+{
+    "env": {
+        "MONGO_USER": "your-mongodb-username",
+        "MONGO_PASSWORD": "your-mongodb-password",
+        "MONGO_DEFAULT_DB": "default-database",
+        "STRIPE_KEY": "your-stripe-key"
+    }
+}
