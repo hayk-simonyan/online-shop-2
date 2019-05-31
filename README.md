@@ -1,8 +1,10 @@
 # Online Shop Website
 
-The  complete online shop website including payment.
+Fully responsove, complete online shop, including payment. Bulit from scratch, with Node.js, Bootstrap 4, MongoDB.
 
-To run this app
+![gif](online-shop-2.gif)
+
+To run this app on your computer:
 1. Clone this repo
 1. Run `npm install`
 1. Change env variables in `nodemon.json` file
