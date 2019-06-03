@@ -1,0 +1,81 @@
+<%- include('../includes/head.ejs') %> <%- include('../includes/navigation.ejs')
+%>
+
+<div class="container">
+  <div class="jumbotron bg-light">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-12 col-md-9 col-lg-6">
+        <h1 class="my-4 c-dblue">Edit Product</h1>
+        <% if(errorMessage) { %>
+        <div class="alert alert-danger" role="alert">
+          <%= errorMessage %>
+        </div>
+        <% } %>
+        <form
+          action="/admin/edit-product/<%= product._id %>"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              class="form-control <%= validationErrors.find(e => e.param === 'title') ? 'is-invalid' : '' %>"
+              id="title"
+              value="<%= product.title %>"
+              required
+            />
+          </div>
+          <div class="form-group mt-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Upload</span>
+              </div>
+              <div class="custom-file">
+                <label class="custom-file-label" for="image"
+                  >Choose Image</label
+                >
+                <input
+                  type="file"
+                  class="custom-file-input"
+                  id="image"
+                  name="image"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              type="number"
+              step="0.01"
+              name="price"
+              class="form-control <%= validationErrors.find(e => e.param === 'price') ? 'is-invalid' : '' %>"
+              id="price"
+              value="<%= product.price %>"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input
+              type="text"
+              name="description"
+              class="form-control <%= validationErrors.find(e => e.param === 'description') ? 'is-invalid' : '' %>"
+              id="description"
+              value="<%= product.description %>"
+              required
+            />
+          </div>
+          <input type="hidden" value="<%= product._id %>" name="productId" />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../includes/end.ejs') %>

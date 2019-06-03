@@ -1,0 +1,21 @@
+<section class="text-center">
+  <% if (currentPage !== 1 && previousPage !== 1) { %>
+  <a class="btn btn-sm btn-info" href="?page=1">1</a>
+  <% } %> <% if (hasPreviousPage) { %>
+  <a class="btn btn-sm btn-info" href="?page=<%= previousPage %>"
+    ><%= previousPage %></a
+  >
+  <% } %>
+  <a class="btn btn-sm btn-info active" href="?page=<%= currentPage %>"
+    ><%= currentPage %></a
+  >
+  <% if (hasNextPage) { %>
+  <a class="btn btn-sm btn-info" href="?page=<%= nextPage %>"
+    ><%= nextPage %></a
+  >
+  <% } %> <% if (lastPage !== currentPage && nextPage !== lastPage) { %>
+  <a class="btn btn-sm btn-info" href="?page=<%= lastPage %>"
+    ><%= lastPage %></a
+  >
+  <% } %>
+</section>

@@ -1,0 +1,132 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <div class="container">
+    <a class="navbar-brand" href="/"><i class="fas fa-gem"> T3ch</i> </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link <%= path === '/' ? 'active' : '' %>" href="/"
+            >Home</a
+          >
+        </li>
+        <div class="dropdown">
+          <button
+            class="btn btn-info btn-sm mt-1 mb-2 mb-lg-0 dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            My Profile
+          </button>
+          <div
+            class="dropdown-menu ml-2 ml-lg-0 pt-0 bg-black"
+            aria-labelledby="dropdownMenuButton"
+          >
+            <li class="nav-item">
+              <a
+                class="nav-link <%= path === '/cart' ? 'active' : '' %>"
+                href="/cart"
+                >My Cart</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link <%= path === '/orders' ? 'active' : '' %>"
+                href="/orders"
+                >My Orders</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link <%= path === '/admin/add-product' ? 'active' : '' %>"
+                href="/admin/add-product"
+              >
+                Add Product
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link <%= path === '/admin/product-list' ? 'active' : '' %>"
+                href="/admin/product-list"
+              >
+                My Products
+              </a>
+            </li>
+          </div>
+        </div>
+        <div class="dropdown ml-0 ml-lg-2 mb-1 mb-lg-0">
+          <button
+            class="btn btn-info btn-sm mt-1 mb-2 mb-lg-0 dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Categories
+          </button>
+          <div
+            class="dropdown-menu ml-2 ml-lg-0 pt-0 bg-black"
+            aria-labelledby="dropdownMenuButton"
+          >
+            <li class="nav-item">
+              <a
+                class="nav-link <%= path === '/product-list' ? 'active' : '' %>"
+                href="/product-list"
+                >All Products</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Computers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Laptops</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Gaming Laptops</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Smartphones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Accesories</a>
+            </li>
+          </div>
+        </div>
+      </ul>
+      <ul class="navbar-nav navbar-right">
+        <% if(!isAuth) { %>
+        <li class="nav-item <%= path === '/login' ? 'active' : '' %>">
+          <a class="nav-link" href="/login"
+            ><i class="fas fa-sign-in-alt"></i> Login</a
+          >
+        </li>
+        <li class="nav-item <%= path === '/signup' ? 'active' : '' %>">
+          <a class="nav-link" href="/signup"
+            ><i class="fas fa-user-plus"></i> Signup</a
+          >
+        </li>
+        <% } else { %>
+        <form action="/logout" method="POST" class="logout form-inline">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button class="btn p-0" type="submit">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </form>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
