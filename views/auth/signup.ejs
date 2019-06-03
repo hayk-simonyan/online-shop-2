@@ -1,0 +1,66 @@
+<%- include('../includes/head.ejs') %> <%- include('../includes/navigation.ejs')
+%>
+
+<div class="container">
+  <div class="jumbotron">
+    <div class="row d-flex justify-content-center text-center">
+      <div class="col-12 col-md-9 col-lg-6">
+        <h1 class="mb-4 c-dblue">Sign Up</h1>
+        <% if(errorMessage) { %>
+        <div class="alert alert-danger" role="alert">
+          <%= errorMessage %>
+        </div>
+        <% } %>
+        <form action="/signup" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              name="email"
+              class="form-control <%= validationErrors.find(e => e.param === 'email') ? 'is-invalid': '' %>"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              value="<%= oldInput.email %>"
+              required
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input
+              type="password"
+              name="password"
+              class="form-control <%= validationErrors.find(e => e.param === 'email') ? 'is-invalid': '' %>"
+              id="exampleInputPassword1"
+              placeholder="Password"
+              value="<%= oldInput.password %>"
+              pattern=".{6,20}"
+              required
+              title="password must be minimum 6 characters long"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword2">Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              class="form-control <%= validationErrors.find(e => e.param === 'email') ? 'is-invalid': '' %>"
+              id="exampleInputPassword2"
+              placeholder="Confirm Password"
+              value="<%= oldInput.confirmPassword %>"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary mt-2">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../includes/end.ejs') %>
