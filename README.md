@@ -1,6 +1,6 @@
 # Online Shop Website
 
-Fully responsove, complete online shop, including payment. Bulit from scratch, with Node.js, Bootstrap 4, MongoDB.
+Fully responsive, complete online shop, including payment. Built from scratch, with Node.js, Bootstrap 4, MongoDB.
 
 ![gif](online-shop-2.gif)
 

@@ -1,0 +1,44 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+
+<div class="container">
+    <div class="jumbotron bg-light">
+        <div class="grid">
+            <div class="mb-3">
+                <h1 class="c-dblue">My Cart</h1>
+            </div>
+            <% if(products.length > 0) { %>
+                <div class="col-12 justify-content-center">
+                    <div class="card">
+                        <% products.forEach(function(p) { %>
+                            <div class="card-body border-bottom">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h1 class="card-title text-primary"><%= p.productId.title %></h5>
+                                        <p class="card-text">Quantity: <%= p.quantity %></p>
+                                    </div>
+                                    <div class="col-6">
+                                        <form class="d-flex d-block flex-row-reverse" action="/cart-delete-item" method="POST">
+                                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                            <input type="hidden" value="<%= p.productId._id %>" name="productId">
+                                            <button class="btn btn-danger mt-3">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <a class="btn btn-primary" href="/checkout">Order Now</a>
+                </div>
+            <% } else { %>
+                <div class="mt-5">
+                    <h3>Your cart is empty</h3>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+
+<div class="container">
+  <div class="jumbotron bg-light">
+    <div class="text-center mb-3">
+      <h1 class="c-dblue">Checkout</h1>
+    </div>
+    <div class="card">
+      <% products.forEach(function(p) { %>
+          <div class="card-body border-bottom">
+              <div class="row">
+                  <div class="col-6">
+                      <h1 class="card-title c-dblue"><%= p.productId.title %></h5>
+                      <p class="card-text">Quantity: <%= p.quantity %></p>
+                  </div>
+              </div>
+          </div>
+        <% }) %>
+        <div class="text-center">
+         <h2>Total: <%= totalSum %></h2>
+        </div>
+    </div>
+    <div class="text-center m-3">
+        <form action="/create-order" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_y5hdSo2hZXQ0wAqfmUM4DdF600ocw2U4BY"
+            data-amount="<%= totalSum * 100 %>"
+            data-name="Your Order"
+            data-description="All the items you ordewred"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto"
+            data-currency="usd">
+          </script>
+        </form>
+    </div>
+  </div>
+</div>
+
+<%- include('../includes/end.ejs') %>

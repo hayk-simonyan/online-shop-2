@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+
+<div class="container">
+    <div class="jumbotron bg-light">
+        <div class="grid">
+            <div class="mb-3">
+                <h1 class="c-dblue">My Orders</h1>
+            </div>
+            <% if(orders.length <= 0) { %>
+                <div class="mt-5">
+                    <h3>You don't have orders yet</h3>
+                </div>
+            <% } else { %>
+                <div class="col-12 justify-content-center">
+                    <div class="card">
+                        <% orders.forEach(function(order) { %>
+                            <div class="card-body border-bottom">
+                                <h1 class="card-title">Id : <%= order.id %> - <a href="/orders/<%= order._id %>">Incvoice</a></h5>
+                                <% order.products.forEach(function(p) { %>
+                                    <li class="card-text"><%= p.product.title %> (<%= p.quantity %>)</li>
+                                <% }) %>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../includes/end.ejs') %>
