@@ -1,0 +1,87 @@
+.jumbotron {
+    min-height:100vh
+}
+
+.card img {
+    width: 100%;
+    height: 10rem;
+    object-fit: cover;
+}
+
+.bg-dblue {
+    background-color: #46A29F
+}
+.c-dblue {
+    color: rgb(97, 214, 210)
+}
+
+.bg-blue {
+    background-color: #66FCF1
+}
+
+.bg-black {
+    background-color: #0B0C10
+}
+
+.bg-dgray {
+    background-color: #202833
+}
+
+.bg-gray {
+    background-color: #C5C6C8
+}
+
+.btn-info {
+    border-radius: 0.5rem;
+    background-color: #0B0C10 !important;
+    border: #46A29F 2px solid !important;
+    color: #C5C6C8 !important
+}
+.btn-info:hover {
+    background-color: #66FCF1 !important;
+    color: #0B0C10 !important
+}
+
+.btn-primary {
+    border-radius: 0.5rem;
+    background-color: #66FCF1 !important;
+    border: #46A29F 2px solid !important;
+    color: #0B0C10 !important
+}
+.btn-primary:hover {
+    border: #66FCF1 2px solid !important;
+    background-color: rgb(101, 238, 229) !important;
+    color: #0B0C10 !important
+}
+
+.nav-item .nav-link {
+    color: #C5C6C8 !important
+}
+.nav-item .nav-link:hover {
+    color: #66FCF1 !important
+}
+
+.navbar-brand {
+    color: #66FCF1 !important
+}
+
+.logout button {
+    color: #C5C6C8
+}
+.logout button:hover {
+    color: #66FCF1
+}
+
+.nav-item .active {
+    color: #66FCF1 !important
+}
+
+.img-detail {
+    height: auto !important;
+}
+
+.card-img-top {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+}
