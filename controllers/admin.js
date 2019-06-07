@@ -19,7 +19,6 @@ exports.postAddProduct = (req, res, next) => {
   const price = req.body.price;
   const image = req.file;
   const description = req.body.description;
-
   if (!image) {
     return res.status(422).render("admin/add-product", {
       pageTitle: "Add Product",
@@ -37,7 +36,6 @@ exports.postAddProduct = (req, res, next) => {
   }
 
   const imageUrl = image.path;
-
   const product = new Product({
     title: title,
     price: price,
