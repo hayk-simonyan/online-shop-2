@@ -8,7 +8,7 @@ To run this app on your computer:
 
 1. Clone this repo
 1. Run `npm install`
-1. Change env variables in `nodemon.json` file
+1. Change env variables in `app.js` file (line 20-22)
    - add your mongodb atlas username (or create account [here](https://www.mongodb.com/cloud/atlas))
    - add your mongodb atlas password
    - set default database
@@ -19,6 +19,7 @@ To run this app on your computer:
 
 - add your nodemailer api_key at controllers/auth.js
 - change password reset link at controllers/auth.js
+- change env variables in nodemon.json file
 
 Tech Stack:
 
